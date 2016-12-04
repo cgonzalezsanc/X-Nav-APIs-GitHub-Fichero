@@ -47,8 +47,7 @@ function showRepo(error, repo) {
 			  "<input type='text' name='nombre_fich' id='nombre_fich' value='Nombre' size='10' />" +
     		  "<input type='text' name='contenido_fich'  id='contenido_fich' value='Contenido' size='10' />" +
 			  "<button type='button' id='write'>" +
-		      "Write File!</button>" +
-		      "<div id='writefile' />");
+		      "Write File!</button>");
 	console.log (repo.full_name, repo.description, repo.created_at);
 	$("#write").click(writeFile);
     }
@@ -61,18 +60,8 @@ function writeFile() {
 		 "Updating data", function(err) {
 		     console.log (err)
 		 });
-    $("#writefile").html("<button type='button' id='read'>" +
-			 "Read File!</button>" +
-			 "<div id='readfile' />");
-    $("#read").click(readFile);
 };
 
-function readFile() {
-    myrepo.read('master', 'datafile', function(err, data) {
-	console.log (err, data);
-	$("#readfile").html("<p>Contents:</p><p>" + data + "</p>");
-    });
-};
 
 $(document).ready(function() {
     $("div#form button").click(getToken);
